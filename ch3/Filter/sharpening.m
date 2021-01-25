@@ -1,0 +1,11 @@
+clear,clc;
+img='../resources/dog.jpg';
+f=imread(img);
+figure;
+w=[1 1 1,1 -8 1,1 1 1];
+g3=imfilter(f,w,'replicate');
+subplot(1,2,1);
+imshow(g3);
+g3=f-g3;
+subplot(1,2,2);
+imshow(g3);

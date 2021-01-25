@@ -1,0 +1,16 @@
+clear,clc;
+img='../resources/dog.jpg';
+f=imread(img);
+figure;
+subplot(1,2,1);
+imshow(f(:,:,1));
+g=ordfilt2(f(:,:,1),median(1,25),ones([5 5]));
+subplot(1,2,2);
+imshow(g);
+figure;
+fn=imnoise(f(:,:,1),'salt & pepper',0.2);
+subplot(1,2,1);
+imshow(fn);
+gm=medfilt2(fn,'symmetric');
+subplot(1,2,2);
+imshow(gm);

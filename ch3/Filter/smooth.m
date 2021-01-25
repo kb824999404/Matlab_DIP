@@ -1,0 +1,16 @@
+clear,clc;
+img='../resources/1.jpg';
+n=10;
+f=imread(img);
+figure;
+subplot(2,2,1);
+imshow(f);
+% w=ones([n n])./(n^2);
+w=fspecial('average',[n n]);
+g1=imfilter(f,w,'replicate');
+subplot(2,2,2);
+imshow(g1);
+w=fspecial('gaussian',[n n],n/2);
+g2=imfilter(f,w,'replicate');
+subplot(2,2,3);
+imshow(g2);
